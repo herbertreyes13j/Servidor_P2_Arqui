@@ -28,6 +28,9 @@ app.get('/', (req, res) => {
     res.send('Servidor Funcionando !!!');
   });
 
+ //rutas
+ app.use('/Recorrido',require('./Routes/recorrido'));
+ 
   // inicializacion de los puertos
 app.listen(app.get('port'),()=>{
     console.log('Server on port',app.get('port'));
