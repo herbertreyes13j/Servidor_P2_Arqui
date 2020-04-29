@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 
-
+const estado=[];
 // Inicializacion 
 const app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +34,11 @@ app.get('/', (req, res) => {
  app.use('/Velocidad',require('./Routes/Velocidades'));
  app.use('/Accion',require('./Routes/Accion'));
  app.use('/Objeto',require('./Routes/Objeto'));
+ app.use('/Estado',require('./Routes/Estado'));
  
   // inicializacion de los puertos
 app.listen(app.get('port'),()=>{
     console.log('Server on port',app.get('port'));
 })
+
+exports.estado= estado;
