@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 
+
 // Inicializacion 
 const app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
 
  //rutas
  app.use('/Recorrido',require('./Routes/recorrido'));
+ app.use('/Velocidad',require('./Routes/Velocidades'));
+ app.use('/Accion',require('./Routes/Accion'));
+ app.use('/Objeto',require('./Routes/Objeto'));
  
   // inicializacion de los puertos
 app.listen(app.get('port'),()=>{

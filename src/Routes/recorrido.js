@@ -3,12 +3,19 @@ const router =  express.Router();
 const index = require('../index');
 var sql = require("mssql");
 var config = require('../conexion');
+const pool = require('../database');
 
-router.post('/',(req,res)=>{
+router.post('/',async (req,res)=>{
     
     var{descripcion}= req.body;
-    res.send(InsertarDescripcion(descripcion));
+    const consulta = await pool.query('insert into recorrido(descripcion) values (?)',[descripcion]);
+    res.send(consulta);
 });
+
+router.get('/',async (req,res)=>{
+    const consulta = await pool.query('SELECT * FROM recorrido');
+    res.send(consulta);
+})
 
 module.exports=router;
 
