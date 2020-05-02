@@ -8,9 +8,11 @@ var config = require('../conexion');
 
 
 router.post('/',(req,res)=>{
+    console.log(req.body);
     var {estado}=req.body;          
     index.estado.push(estado);
-    res.send('Estado Insertado');
+    
+    res.send('{"respuesta":"Estado Insertado"}');
 });
 
 

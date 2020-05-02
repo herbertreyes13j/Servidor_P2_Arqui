@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
  app.use('/Accion',require('./Routes/Accion'));
  app.use('/Objeto',require('./Routes/Objeto'));
  app.use('/Estado',require('./Routes/Estado'));
+ app.use('/Bitacora',require('./Routes/Bitacora'));
  
   // inicializacion de los puertos
 app.listen(app.get('port'),()=>{
