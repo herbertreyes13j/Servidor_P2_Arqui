@@ -23,7 +23,7 @@ router.get('/',(req,res)=>{
         var resp = index.estado.shift();
         res.send(resp); 
     }else{
-        res.send('0');
+        res.send('v');
     }
 });
 

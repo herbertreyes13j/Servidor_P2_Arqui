@@ -12,6 +12,13 @@ router.post('/',async (req,res)=>{
     res.send(consulta);
 });
 
+router.post('/Actualizar',async (req,res)=>{
+    
+    var{distancia_recorrida,tiempo_total}= req.body;
+    const consulta = await pool.query(`update recorrido set distancia_recorrida = ?, tiempo_total = ? where id_recorrido = (select id_recorrido from velocidad order by id_recorrido DESC LIMIT 1)`,[distancia_recorrida,tiempo_total]);
+    res.send(consulta);
+});
+
 router.get('/',async (req,res)=>{
     const consulta = await pool.query('SELECT * FROM recorrido');
     res.send(consulta);
