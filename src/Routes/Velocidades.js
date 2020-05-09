@@ -14,7 +14,7 @@ router.post('/',async (req,res)=>{
 });
 
 router.get('/',async (req,res)=>{
-    const consulta = await pool.query('SELECT * FROM velocidad');
+    const consulta = await pool.query('SELECT velocidad, tiempo FROM velocidad');
     res.send(consulta);
 })
 
