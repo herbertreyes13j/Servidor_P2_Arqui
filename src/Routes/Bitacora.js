@@ -12,7 +12,7 @@ router.get('/',async (req,res)=>{
     from objeto o, recorrido r
     where o.id_recorrido = r.id_recorrido
     group by o.id_recorrido
-    order by o.id_recorrido DESC limit 1) as Objetos_Evadidos, avg(a.tiempo) as TiempoDecision
+    order by o.id_recorrido DESC limit 1) as Objetos_Evadidos, cast(avg(a.tiempo) as decimal(10,2)) as TiempoDecision
     from recorrido r, velocidad v, objeto o, accion a
     where r.id_recorrido=v.id_recorrido and r.id_recorrido = o.id_recorrido and r.id_recorrido=a.id_recorrido
     group by r.id_recorrido
