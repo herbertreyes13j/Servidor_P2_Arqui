@@ -6,6 +6,7 @@ create table recorrido(
     descripcion varchar(100),
     distancia_recorrida varchar(100),
     tiempo_total varchar(100),
+    fecha date,
     primary key (id_recorrido)
 );
 
