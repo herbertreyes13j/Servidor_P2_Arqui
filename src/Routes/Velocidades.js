@@ -14,7 +14,7 @@ router.post('/',async (req,res)=>{
 });
 
 router.get('/',async (req,res)=>{
-    const consulta = await pool.query('SELECT velocidad, tiempo FROM velocidad');
+    const consulta = await pool.query('SELECT velocidad, tiempo FROM velocidad order by tiempo ASC where id_recorrido = (select id_recorrido from recorrido order by id_recorrido DESC limit 1)');
     res.send(consulta);
 })
 
