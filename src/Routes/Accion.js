@@ -15,7 +15,7 @@ router.post('/',async (req,res)=>{
 });
 
 router.get('/',async (req,res)=>{
-    const consulta = await pool.query('SELECT * FROM accion');
+    const consulta = await pool.query('SELECT tipo_accion, cast(avg(tiempo) as decimal(10,2)) as tiempoaccion FROM accion where id_recorrido = (select id_recorrido from recorrido order by id_recorrido DESC limit 1 ) group by(tipo_accion);');
     res.send(consulta);
 })
 
