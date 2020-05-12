@@ -14,7 +14,7 @@ router.post('/',async (req,res)=>{
 });
 
 router.get('/',async (req,res)=>{
-    const consulta = await pool.query('select count(o.id_objeto) as objeto from objeto o, recorrido r where r.id_recorrido = o.id_recorrido group by o.tipo order by o.id_recorrido DESC limit 1');
+    const consulta = await pool.query('select tipo , count(id_objeto) as cantidad from objeto where id_recorrido = (select id_recorrido from recorrido order by id_recorrido DESC limit 1 ) group by tipo;');
     res.send(consulta);
 })
 
