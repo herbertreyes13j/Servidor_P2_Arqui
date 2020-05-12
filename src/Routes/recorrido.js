@@ -20,7 +20,7 @@ router.post('/Actualizar',async (req,res)=>{
 });
 
 router.get('/',async (req,res)=>{
-    const consulta = await pool.query('SELECT * FROM recorrido');
+    const consulta = await pool.query('select id_recorrido, distancia_recorrida from recorrido;');
     res.send(consulta);
 })
 
