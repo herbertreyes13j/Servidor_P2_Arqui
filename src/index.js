@@ -30,12 +30,12 @@ app.get('/', (req, res) => {
   });
 
  //rutas
- app.use('/Recorrido',require('./Routes/recorrido'));
+ app.use('/Partida',require('./Routes/Partida'));
  app.use('/Velocidad',require('./Routes/Velocidades'));
- app.use('/Accion',require('./Routes/Accion'));
+ app.use('/Movimiento',require('./Routes/Movimiento'));
  app.use('/Objeto',require('./Routes/Objeto'));
  app.use('/Estado',require('./Routes/Estado'));
- app.use('/Bitacora',require('./Routes/Bitacora'));
+ app.use('/Estadisticas',require('./Routes/Estadisticas'));
  
   // inicializacion de los puertos
 app.listen(app.get('port'),()=>{
