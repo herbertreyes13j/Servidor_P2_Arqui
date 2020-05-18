@@ -7,15 +7,15 @@ const pool = require('../database');
 
 router.post('/',async (req,res)=>{
     
-    var{descripcion}= req.body;
-    const consulta = await pool.query('insert into recorrido(descripcion) values (?)',[descripcion]);
+    var{username}= req.body;
+    const consulta = await pool.query('INSERT INTO partida(username) values(?)',[username]);
     res.send(consulta);
 });
 
 router.post('/Actualizar',async (req,res)=>{
     
-    var{distancia_recorrida,tiempo_total}= req.body;
-    const consulta = await pool.query(`update recorrido set distancia_recorrida = ?, tiempo_total = ? where id_recorrido = (select id_recorrido from velocidad order by id_recorrido DESC LIMIT 1)`,[distancia_recorrida,tiempo_total]);
+    var{puntaje, estado}= req.body;
+    const consulta = await pool.query('UPDATE partida SET puntaje = ?, estado = ? WHERE id_partida = (select id_partida from partida ORDER BY id_partida DESC LIMIT 1)',[puntaje,estado]);
     res.send(consulta);
 });
 
