@@ -10,7 +10,7 @@ router.post('/',async (req,res)=>{
     var{tipo_mov}= req.body;
     const consulta = await pool.query('INSERT INTO movimiento (tipo, id_partida) VALUES (?,(SELECT id_partida from partida order by id_partida DESC LIMIT 1));'
     ,
-    [tipo_accion]);
+    [tipo_mov]);
     res.send(consulta);
 });
 
