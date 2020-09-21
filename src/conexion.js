@@ -1,8 +1,8 @@
 var config = {
-    user: 'adminarqui',
-    password: 'Admon123',
-    server: 'arqui2server.database.windows.net', 
-    database: 'Arqui2db'
+    user: '',
+    password: '',
+    server: '', 
+    database: ''
 };
 
 module.exports=config;
